@@ -1,0 +1,114 @@
+syntax = "proto2";
+package ldyx;
+
+enum SUBID
+{
+	// 服务端推送命令
+	SUB_S_NORMAL 					= 100;
+	SUB_S_MARRY	 				= 101;
+	SUB_S_STATUSFREE				= 102;
+	
+	//客户端命令   	
+	SUB_C_START 					= 103;
+	SUB_C_MARRY  					= 104;  
+	SUB_C_JETTON					= 105;	//下注 CMD_C_JETTON
+	
+	SUB_C_BIBEI_ADDDROP				= 106;  //增加或者减少比倍分数  CMD_C_BIBEI_ADDDROP
+	SUB_C_BIBEI_BET					= 107;  //客户端向服务端发送比倍区域  CMD_C_BIBEI_BET
+
+	SUB_S_BIBEI_ADD_SUSSES				= 108;  //增加或者降低比倍分数成功 CMD_S_BIBEI_ADDDROP_SUSSES
+	SUB_S_Bibei_Rec					= 109;	//发送比倍结果  CMD_S_BiBeiResult
+
+	SUB_S_JETTON_SUSSES				= 110;	//下注成功 CMD_S_JETTON_SUSSES			
+	//错误信息
+	SUB_S_ERROR_INFO				= 150;	//CMD_S_ErrorCode 
+	// 服务器场景命令
+	SUB_SC_GAMESCENE_FREE				= 201;	//空闲场景消息CMD_S_StatusFree 
+}
+//下注成功
+message CMD_S_JETTON_SUSSES
+{  
+   required int32 JettonIndex         	     =1;//下注下标 0 苹果  1 橙子 2 芒果 3 铃铛 4 西瓜  5 星星 6 七七   7 BAR
+   required int32 Score         	     =2;//下注的分数	
+}
+message CMD_C_JETTON
+{
+  required int32 JettonIndex         =1;//下注下标 0 苹果  1 橙子 2 芒果 3 铃铛 4 西瓜  5 星星 6 七七   7 BAR
+  required int32 Score         	     =2;//下注的分数
+}
+message CMD_S_BIBEI_ADDDROP_SUSSES
+{	
+  	required int32 JetScore 	= 1; 	//变化后的比倍分数
+}
+message CMD_C_BIBEI_ADDDROP
+{
+  	required int32 ZuoYou 	= 1; 	//增加或者降低比倍分数
+}
+
+message CMD_C_BIBEI_BET
+{	
+  	required int32 BetPlace 	= 1; 	//下注区域0大1小
+}
+message CMD_S_ErrorCode
+{
+	required int32 cbLoseReason 	= 1; 	//错误码
+} 
+
+
+message CMD_S_BiBeiResult 
+{
+	required int64 currentWin		= 1;
+	required int64 totalWin			= 2;
+	required int64 userScore		= 3;
+	required int64 betMoney			= 4;
+	required bool  isOver			= 5;
+	required int32 daXiao 			= 6;	//押分项列表 1-14 ,1-7 是小，8-14是大
+}
+//场景消息开始，空闲状态
+message CMD_S_GameFree
+{
+	required int64 MinBet 			= 1;	//最低下注 (下注必须是这个数的倍数)
+	required int64 MaxBet 			= 2;	//最大下注
+	required int64 lCurrentBet 		= 3;	//当前下注信息
+	required int64 MyScoreInfo 		= 4;	//分数信息
+	required int64 nSmallMaryNum 		= 5;	//剩余小玛丽数量
+	required int64 TotalWin 		= 6;	//小玛丽得分
+	repeated int32 BetLists 		= 7;	//押分项列表 
+	required int32 HeadId 			= 8;	//押分项列表 
+}
+
+//拉霸开奖结果消息
+message CMD_S_RoundResult 
+{
+    	required int64 Score 			= 1; 	//中了多少分
+	required int64 lCurrentScore 		= 2; 	//当前携带金币
+	required int32 nMarryNum 		= 3; 	//剩余玛丽数量			
+	required string roundId			= 4; 	//牌局Id 
+	required int32 fruitIndex		= 5; 	//开出结果Id  下注下标 0 大苹果  1 小苹果 2 大橙子 3 小橙子 4 大芒果 5 小芒果 6 大铃铛 7 小铃铛 8 大西瓜  9 小西瓜 10 大星星 11 小星星    								//12 大七七 13 小七七 14 大BAR 15 小BAR  16 蓝色Lucky 17 黄色Lucky
+
+}
+
+//小玛丽结束
+message CMD_S_MarryResult
+{
+	required int64 TotalWin   		= 1; 	//总得分
+    	required int64 CurrentWin 		= 2; 	//当前赢分
+    	required int64 UserScore 		= 3; 	//当前携带金币
+	required int32 FruitIndex 		= 4; 	//开出的结果 和普通奖下标对应水果一致
+	required int32 nMarryLeft 		= 5; 	//剩余小玛丽 
+	required int32 nMarryNum 		= 6; 	//总共玩多少次小玛丽
+	required string roundId			= 7; 	//牌局Id  
+	required int32 BetScore 		= 8; 	//
+	
+}
+
+//开始按键(拉一盘)
+message CMD_C_GameStart
+{
+	required int64 llBetScore  		= 1; 	//总押分
+}
+message CMD_C_ClientReq
+{
+	required int32 nReqType  		= 1; 	//请求类型
+}
+

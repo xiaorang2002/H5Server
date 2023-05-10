@@ -1,0 +1,253 @@
+syntax = "proto2";
+package qzpj;
+
+enum SUBID
+{
+//场景消息
+  SC_GAMESCENE_FREE				=		201	;						//空闲场景消息
+  SC_GAMESCENE_CALL				=		202	;					   	//叫庄场景消息
+  SC_GAMESCENE_SCORE			=		203	;						//下注场景消息
+  SC_GAMESCENE_OPEN				=		204	;						//开牌场景消息
+  SC_GAMESCENE_END				=		205	;						//游戏结束
+  SC_GAMESCENE                  =       206 ;                       //场景数据 CMD_S_Scene
+  
+//服务器命令结构
+  SUB_S_GAME_START				=		100	;						//游戏开始
+  SUB_S_CALL_BANKER				=		101	;						//叫庄[CMD_S_CallBanker]
+  SUB_S_CALL_BANKER_RESULT		=		102	;						//叫庄结果[CMD_S_CallBankerResult]
+  SUB_S_ADD_SCORE_RESULT		=		103	;						//下注结果[CMD_S_AddScoreResult]
+  SUB_S_SEND_CARD				=		104	;						//发牌消息[CMD_S_SendCard]
+  SUB_S_OPEN_CARD_RESULT		=		105	;						//开牌结果[CMD_S_OpenCardResult]
+  SUB_S_GAME_END                =		106	;						//游戏结束[CMD_S_GameEnd]
+  SUB_S_OPERATE_FAIL			=		107	;						//操作失败
+  SUB_S_GAME_START_AI      		=		108 ;
+  
+//客户端往服务器端发消息(C->S)
+  SUB_C_CALL_BANKER				=	    1	;						//叫庄消息[CMD_C_CallBanker]
+  SUB_C_ADD_SCORE				=		2	;						//下注消息[CMD_C_AddScore]
+  SUB_C_OPEN_CARD				=		3	;						//开牌消息[空消息]
+  SUB_C_SCENE                   =       4   ;                       //场景数据 CMD_C_Scene
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//玩家信息
+message PlayerInfo
+{
+	optional int64 userId       = 1; //账号
+	optional string nickName    = 2; //昵称
+	optional int32 headIndex    = 3; //头像
+	optional string location    = 4; //位置
+	optional int32 status       = 5; //状态
+	optional int32 chairId      = 6; //座椅ID
+	
+	optional int32 ty           = 7; //牌型
+	optional bytes cards        = 8; //手牌
+	
+	repeated int32 callableMulti = 9;  //可用的叫庄倍数
+	optional int32 callBanker    = 10; //叫庄倍数(-1:未叫 0:不叫 1,2,3,4:叫庄)
+	
+	repeated int32 jettonableMulti = 11; //可用的下注倍数
+	optional int32 jetton          = 12; //下注倍数(-1:未下注)
+	
+	optional int64 score        = 13; //携带积分
+	optional int32 wlScore      = 14; //输赢积分
+}
+
+//空闲状态
+message MSG_GS_FREE
+{
+	optional int32 cellScore       = 1; //房间底注
+	optional int32 leftTime        = 2; //剩余时间
+	optional int32 chairId         = 3; //玩家座椅ID
+	repeated PlayerInfo infos      = 4; //玩家数据
+	optional int32 status          = 5; //房间状态
+    optional int32 roundTurn       = 6; //第几轮
+	optional bytes cards           = 7; //剩余牌
+};
+
+//叫庄状态
+message MSG_GS_CALL
+{
+	optional int32 cellScore       = 1; //房间底注
+	optional int32 leftTime        = 2; //剩余时间
+	optional int32 chairId         = 3; //玩家座椅ID
+	repeated PlayerInfo infos      = 4; //玩家数据
+	optional int32 status          = 5; //房间状态
+	optional string roundId        = 6; //牌局编号
+	optional int32 roundTurn       = 7; //第几轮
+	optional bytes cards           = 8; //剩余牌
+};
+
+//下注状态
+message MSG_GS_SCORE
+{
+	optional int32 cellScore       = 1; //房间底注
+	optional int32 leftTime        = 2; //剩余时间
+	optional int32 chairId         = 3; //玩家座椅ID
+	optional int32 bankerUser      = 4; //庄家用户
+	repeated PlayerInfo infos      = 5; //玩家数据
+	optional int32 status          = 6; //房间状态
+	optional string roundId        = 7; //牌局编号
+	optional int32 roundTurn       = 8; //第几轮
+	optional bytes cards           = 9; //剩余牌
+};
+
+//开牌状态
+message MSG_GS_OPEN
+{
+	optional int32 cellScore       = 1; //房间底注
+	optional int32 leftTime        = 2; //剩余时间
+	optional int32 chairId         = 3; //玩家座椅ID
+	optional int32 bankerUser      = 4; //庄家用户
+	repeated PlayerInfo infos      = 5; //玩家数据
+	optional int32 status          = 6; //房间状态
+	optional string roundId        = 7; //牌局编号
+	optional int32 roundTurn       = 8; //第几轮
+	optional bytes cards           = 9; //剩余牌
+};
+
+//结束状态
+message MSG_GS_END
+{
+	optional int32 cellScore       = 1; //房间底注
+	optional int32 leftTime        = 2; //剩余时间
+	optional int32 chairId         = 3; //玩家座椅ID
+	optional int32 bankerUser      = 4; //庄家用户
+	repeated PlayerInfo infos      = 5; //玩家数据
+	optional int32 status          = 6; //房间状态
+	optional string roundId        = 7; //牌局编号
+	optional int32 roundTurn       = 8; //第几轮
+	optional bytes cards           = 9; //剩余牌
+	optional int32 gameOver        = 10;//0:继续 1:余额不足提前结束 2:正常结束
+};
+
+//游戏开始
+message CMD_S_GameStart
+{
+	repeated	int32						cbPlayStatus=1;								//用户状态(1打牌玩家)
+	required	int32						cbCallBankerTime=2;										//抢庄时间
+	repeated	int32						cbCallBankerMultiple=3;			//叫庄倍数
+	required 	string 	roundId   = 4;
+	optional    int32   roundTurn = 5; //1或2 表示第1或2轮
+};
+
+//叫庄
+message CMD_S_CallBanker
+{
+    required	int32						wCallBankerUser=1;										//叫庄玩家 chairId
+    required	int32						cbCallMultiple=2;										//叫庄倍数(0:不叫 其他数字表示叫庄倍数)
+};
+
+//叫庄结果
+message CMD_S_CallBankerResult
+{
+	required	int32						dwBankerUser=1;											//确定的庄家
+    repeated	int32						cbCallBankerUser=2;                                     //叫庄的玩家[没叫的是0;叫庄是1]
+	required	int32						cbAddJettonTime=3;										//下注时间
+	required	int32						cbRandBanker=4;											//是否随机庄家
+	repeated	int32						cbJettonMultiple=5;			//下注倍数
+};
+
+//下注结果
+message CMD_S_AddScoreResult
+{
+    required	int32						wAddJettonUser=1;										//下注玩家
+	required	int32						cbJettonMultiple=2;										//下注倍数
+};
+
+//发牌结果
+message CMD_S_SendCard 
+{
+	repeated	int32						cbSendCard=1;									//本家牌数据
+    repeated	int32						cbOxCard=2;                                     //提牌数据
+	required	int32						cbCardType=3;												//牌型
+	required	int32						cbOpenTime=4;												//开牌时间
+	optional    bytes   cards     = 5; //剩余牌
+};
+
+message PlayerResult {
+	optional int32 chairId       = 1; //座椅ID
+	optional HandCards handcards = 2; //手牌数据
+}
+
+//开牌结果
+message CMD_S_OpenCardResult
+{
+	//required	int32						wOpenCardUser=1;											//开牌玩家
+	repeated PlayerResult result = 1;
+	//required	int32						cbCardType=2;												//牌型
+	//repeated	int32						cbCardData=3;									//牌数据
+	//repeated	int32						cbOxCardData=4;								//牌数据(前三张牛牛，后两张点数)
+	//对应牌型：1:散牌 2:对子 3:顺子 4:金花(同花) 5:顺金(同花顺) 6:豹子(炸弹)
+};
+
+//游戏结算
+message CMD_S_GameEnd
+{
+	//required	int32						wBankerUser=1;											//庄家
+	//required	int32						cbPlayStatus=2;								//玩家状态
+	repeated	double						dLWScore=1;									//输赢分
+	repeated 	double						dTotalScore=2;								//结算后的分数
+	required	int32						cbEndType=3;
+	repeated	int32						cbOperate=4;													//结算类型(0 正常结束 1 通杀 2 通赔)
+	required    int32                       cbGameOver=5; //0:继续 1:余额不足提前结束 2:正常结束
+};
+
+//叫庄
+message CMD_C_CallBanker  
+{
+	required	int32						cbCallFlag=1;											//叫庄标志(0:不叫 1;2;4:叫庄倍数)
+};
+
+//下注
+message CMD_C_AddScore  
+{
+	required	int32						cbJettonIndex=2;										//倍数索引
+};
+
+message CMD_S_GameStartAi
+{
+    required int32							cbOXCardData = 1;	//扑克列表
+    required int32                          isMaxCard    = 2;
+};
+
+//场景数据
+message CMD_C_Scene
+{
+}
+
+message CMD_S_Scene
+{
+	required int32 sceneID = 1;//场景消息 SC_GAMESCENE_FREE/SC_GAMESCENE_CALL/SC_GAMESCENE_SCORE/SC_GAMESCENE_OPEN
+	required bytes data    = 2;//场景消息 MSG_GS_FREE/MSG_GS_CALL/MSG_GS_SCORE/MSG_GS_OPEN
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//玩家手牌
+message HandCards
+{
+	optional int32 ty        = 1; //牌型
+	optional bytes cards     = 2; //手牌
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//当局游戏记录详情
+message PlayerRecordDetail {
+	optional string account      = 1; //账号/昵称
+	optional int32 chairId       = 2; //座椅ID
+	optional int32 isbanker      = 3; //是否庄家
+	optional HandCards handcards = 4; //手牌数据
+	optional int64 userscore     = 5; //携带积分
+	optional int64 cellscore     = 6; //房间底注
+	optional int32 multi         = 7; //下注/抢庄倍数
+	optional int32 calcMulti     = 8; //牌局倍数
+	optional int64 winLostScore  = 9; //输赢积分
+	optional int32 roundTurn     = 10;//1或2 表示第1或2轮
+}
+
+////////////////////////////////////////////////////////////////////////////////
+//当局游戏记录详情
+message CMD_S_GameRecordDetail {
+	optional int32 gameid              = 1; //游戏类型
+	repeated PlayerRecordDetail detail = 2; //当局记录详情
+}

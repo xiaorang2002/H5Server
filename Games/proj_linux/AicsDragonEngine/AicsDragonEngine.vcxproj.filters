@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Aics Updater">
+      <UniqueIdentifier>{dd60b984-c6b0-4139-8113-8428e4d080f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aics_support_x64">
+      <UniqueIdentifier>{8d9ba19b-c2b3-43ef-9547-0e46c09ed597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global Files">
+      <UniqueIdentifier>{1e22ea84-d532-4f92-9c5f-eae99ba9f6c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{57ae155a-be73-416a-b737-f374f1b31874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PocketLogic">
+      <UniqueIdentifier>{be8b4fbd-1d3f-4acd-a8e9-4bff517ecba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="private">
+      <UniqueIdentifier>{db48cb44-8d28-4cc0-b7af-09b454147760}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="public">
+      <UniqueIdentifier>{8830d580-1481-40b3-b342-e4e7dd6718e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1042223c-482a-4d75-8fbe-0ac202dd98e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyxml">
+      <UniqueIdentifier>{8418923d-9829-425f-a6b0-12296b79e077}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\Globals\AicsAverager.h">
+      <Filter>Global Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\Globals\AicsExcelWriter.h">
+      <Filter>Global Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\Globals\AicsRandomPool.h">
+      <Filter>Global Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\Globals\AicsParamUpdater.h">
+      <Filter>Aics Updater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\Globals\AicsRuntime.h">
+      <Filter>Global Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\Globals\AicsSockImpl.h">
+      <Filter>Global Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\Globals\StaticBlackList.h">
+      <Filter>Global Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\Globals\UserStateCached.h">
+      <Filter>Global Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\aics_support_x64.h">
+      <Filter>aics_support_x64</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\AicsDragonEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\PocketLogic.h">
+      <Filter>PocketLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Algorithm\publics\IAicsdragon.h">
+      <Filter>public</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\AicsRuntime.cpp">
+      <Filter>Global Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\AicsParamUpdater.cpp">
+      <Filter>Aics Updater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\AicsSockImpl.cpp">
+      <Filter>Global Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\aics_support_x64.cpp">
+      <Filter>aics_support_x64</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\tinyxml\tinystr.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\tinyxml\tinyxml.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\tinyxml\tinyxmlerror.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\tinyxml\tinyxmlparser.cpp">
+      <Filter>tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Algorithm\AicsLonghu\AicsDragonEngine\AicsDragonEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Algorithm\linux-include\des\3des8bit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

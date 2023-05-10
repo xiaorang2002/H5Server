@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="pb">
+      <UniqueIdentifier>{8ac0a16b-5eab-4b01-abd0-cb07d3d009c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game_qzpj">
+      <UniqueIdentifier>{63e6771d-d967-4818-8ee5-e23c6960c27b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="public">
+      <UniqueIdentifier>{a4fd6ce9-63b1-47a4-b05d-4b1085977b6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="public\pb2Json">
+      <UniqueIdentifier>{4921bf14-291d-4de8-bfab-b82765e18e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="public\jsoncpp">
+      <UniqueIdentifier>{1719c6f9-6b54-482a-b76a-f996abbd7237}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="public\jsoncpp\include">
+      <UniqueIdentifier>{8d1271da-8a77-499c-a19c-fd01f181d8b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="public\jsoncpp\include\json">
+      <UniqueIdentifier>{98276a1b-b02c-49d3-bc11-c5216e4a5e80}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\public\SubNetIP.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="TableFrameSink.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\weights.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\GlobalFunc.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="CMD_Game.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QPAlgorithm\cfg.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\Random.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\StdRandom.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QPAlgorithm\PJ.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\proto\qzpj.Message.pb.h">
+      <Filter>pb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\pb2Json\pb2Json.h">
+      <Filter>public\pb2Json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\jsoncpp\include\json\json.h">
+      <Filter>public\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\jsoncpp\include\json\reader.h">
+      <Filter>public\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\jsoncpp\include\json\writer.h">
+      <Filter>public\jsoncpp\include\json</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="TableFrameSink.cpp">
+      <Filter>Game_qzpj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\weights.cpp">
+      <Filter>Game_qzpj</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Game_qzpj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\GlobalFunc.cpp">
+      <Filter>Game_qzpj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QPAlgorithm\cfg.cpp">
+      <Filter>Game_qzpj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QPAlgorithm\PJ.cpp">
+      <Filter>Game_qzpj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\proto\qzpj.Message.pb.cc">
+      <Filter>pb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\pb2Json\pb2Json.cpp">
+      <Filter>public\pb2Json</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

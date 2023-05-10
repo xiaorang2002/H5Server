@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Distribution Files">
+      <UniqueIdentifier>{B83CAF91-C7BF-462F-B76C-EA11631F866C}</UniqueIdentifier>
+      <Extensions>*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Distribution Files">
+      <UniqueIdentifier>{B83CAF91-C7BF-462F-B76C-EA11631F866C}</UniqueIdentifier>
+      <Extensions>*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\CPart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\CTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\CTableMgr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\ComposeTypeCheckers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\share\SvnH5Server\proto\Erqs.Message.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\share\SvnH5Server\proto\Game.Common.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\GamePlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\GameProcess.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\share\SvnH5Server\proto\GameServer.Message.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\share\SvnH5Server\public\GameTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\share\SvnH5Server\public\GlobalFunc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\MjAlgorithm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\share\SvnH5Server\public\weights.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CPart.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CTableMgr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\proto\Erqs.Message.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\proto\Game.Common.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\proto\GameServer.Message.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\GameTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\GlobalFunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\Globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\IAndroidUserItemSink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\ITableFrame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\ITableFrameSink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MjAlgorithm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Framework\GameServer\ServerUserItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\SubNetIP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\gameDefine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\weights.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\proto\src\Erqs.Message.proto">
+      <Filter>Distribution Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

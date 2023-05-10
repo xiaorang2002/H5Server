@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="pb">
+      <UniqueIdentifier>{dbe7505c-c190-438a-a9be-cbedb94f7eb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{69f842a3-52a4-417c-8dc9-aa1c507e3cf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{8e236360-59d7-43b1-a05e-1976063b3920}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\proto\Game.Common.pb.h">
+      <Filter>pb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\proto\GameServer.Message.pb.h">
+      <Filter>pb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Framework\GameServer\AndroidTimedLimit.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Framework\GameServer\AndroidUserItem.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Framework\GameServer\AndroidUserManager.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Framework\GameServer\GameServer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Framework\GameServer\GameTableManager.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Framework\GameServer\QipaiAIThread.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Framework\GameServer\Random.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Framework\GameServer\ServerUserItem.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Framework\GameServer\ServerUserManager.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Framework\GameServer\TableFrame.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Framework\GameServer\TableFrameSink.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\ThreadLocalSingletonMongoDBClient.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Framework\GameServer\ServerUserItem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Framework\GameServer\ServerUserManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Framework\GameServer\TableFrame.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Framework\GameServer\AndroidUserItem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Framework\GameServer\AndroidUserManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Framework\GameServer\GameServer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Framework\GameServer\GameTableManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\public\ThreadLocalSingletonMongoDBClient.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\proto\GameServer.Message.pb.cc">
+      <Filter>pb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\proto\Game.Common.pb.cc">
+      <Filter>pb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Framework\GameServer\main.cpp" />
+  </ItemGroup>
+</Project>

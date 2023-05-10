@@ -1,0 +1,36 @@
+syntax = "proto2";
+package ProxyServer.Message;
+
+import "Game.Common.proto";
+
+
+message GetAESKeyMessage
+{
+    required Game.Common.Header     header  = 1;    // ID
+    required bytes                  pubKey  = 2;	// 生成临时公钥
+    optional int32                  type    = 3;    // 0,代表请求公钥和随机密码,1代表返回密钥
+    optional int32                  agentid = 4;    // 代理id
+    optional string                 KeyMsg  = 5;    // 返回密钥
+}
+
+message GetAESKeyMessageResponse
+{
+    required Game.Common.Header     header      = 1;  // ID
+    required bytes                  aesKey      = 2;  // 返回AES通道加密KEY.
+
+    optional int32                  type        = 3; // 0,代表请求公钥和随机密码,1代表返回密钥
+    optional int32                  retCode     = 4; // error code.
+    optional string                 keyText     = 5; // 加密Key.
+    optional string                 errorMsg    = 6; // error message.
+}
+
+
+message NotifyNoticeMessageFromProxyServerMessage // 服务器通知有新消息
+{
+    required Game.Common.Header     header       = 1; // ID
+    required string                 title        = 2; //消息头
+    required string                 message      = 3; //消息体
+    repeated int32                  agentid      = 4; //代理id
+    optional int32                  msgType      = 5; //广播类型
+    optional string                 lanType      = 6; //语言类型
+}

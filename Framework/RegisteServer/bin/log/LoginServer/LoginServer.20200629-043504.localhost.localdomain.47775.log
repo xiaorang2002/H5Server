@@ -1,0 +1,112 @@
+20200629 12:35:04.398917 47775 INFO  ---LoginServer pid = 47775 - main.cpp:150
+20200629 12:35:04.401872 47775 INFO   --- 日志级别 = 1 - main.cpp:168
+20200629 12:35:04.401989 47775 INFO   --- 网卡名称 = ens33 strIpAddr[192.168.2.95] - main.cpp:175
+20200629 12:35:04.402005 47775 INFO  --- ZookeeperIP = 192.168.2.209:2181 - main.cpp:189
+20200629 12:35:04.402011 47775 INFO   --- RedisClusterIP = 192.168.2.208:6379 - main.cpp:213
+20200629 12:35:04.402022 47775 WARN  ---HttpPort 9090 - main.cpp:243
+20200629 12:35:04.402864 47777 INFO   --- *** loop start looping ... - EventLoop.cc:109
+20200629 12:35:04.402894 47775 WARN  ---LoadIniConfig - LoginServer.cpp:1822
+20200629 12:35:04.403446 47775 WARN  ---Api Add http://192.168.2.214/TokenHandle TokenHandleAesKey:mjo3obaHdKXxs5Fqw4Gj6mO7rBc52Vdw descode 111362EE140F157D - LoginServer.cpp:1856
+20200629 12:35:04.403456 47775 WARN  ---isDemo 1 isWhiteIp:0 0 isdecrypt 1 - LoginServer.cpp:1857
+20200629 12:35:04.403466 47775 INFO  InitMongoDB---DB url mongodb://192.168.2.97:27017 - LoginServer.cpp:231
+20200629 12:35:04.410105 47775 INFO  InitRedisCluster ipaddr[192.168.2.208:6379]password[] - LoginServer.cpp:205
+20200629 12:35:04.410140 47775 INFO  ---redis Connect With ip[192.168.2.208],port[6379] initRedisCluster - RedisClient.cpp:161
+20200629 12:35:04.427370 47775 INFO  ---redis errstr[],fd[13],err[0],flags[3] - RedisClient.cpp:174
+20200629 12:35:04.496734 47779 INFO  threadInit - LoginServer.cpp:175
+20200629 12:35:04.496873 47779 INFO  ---redis Connect With ip[192.168.2.208],port[6379] initRedisCluster - RedisClient.cpp:161
+20200629 12:35:04.498243 47780 INFO  threadInit - LoginServer.cpp:175
+20200629 12:35:04.498372 47780 INFO  ---redis Connect With ip[192.168.2.208],port[6379] initRedisCluster - RedisClient.cpp:161
+20200629 12:35:04.499328 47781 INFO  threadInit - LoginServer.cpp:175
+20200629 12:35:04.499431 47781 INFO  ---redis Connect With ip[192.168.2.208],port[6379] initRedisCluster - RedisClient.cpp:161
+20200629 12:35:04.500064 47782 INFO  threadInit - LoginServer.cpp:175
+20200629 12:35:04.500746 47782 INFO  ---redis Connect With ip[192.168.2.208],port[6379] initRedisCluster - RedisClient.cpp:161
+20200629 12:35:04.501305 47783 INFO  threadInit - LoginServer.cpp:175
+20200629 12:35:04.501409 47783 INFO  ---redis Connect With ip[192.168.2.208],port[6379] initRedisCluster - RedisClient.cpp:161
+20200629 12:35:04.502392 47784 INFO  threadInit - LoginServer.cpp:175
+20200629 12:35:04.502554 47784 INFO  ---redis Connect With ip[192.168.2.208],port[6379] initRedisCluster - RedisClient.cpp:161
+20200629 12:35:04.504165 47785 INFO  threadInit - LoginServer.cpp:175
+20200629 12:35:04.504285 47785 INFO  ---redis Connect With ip[192.168.2.208],port[6379] initRedisCluster - RedisClient.cpp:161
+20200629 12:35:04.505057 47786 INFO  threadInit - LoginServer.cpp:175
+20200629 12:35:04.505242 47786 INFO  ---redis Connect With ip[192.168.2.208],port[6379] initRedisCluster - RedisClient.cpp:161
+20200629 12:35:04.515979 47787 INFO  threadInit - LoginServer.cpp:175
+20200629 12:35:04.516178 47787 INFO  ---redis Connect With ip[192.168.2.208],port[6379] initRedisCluster - RedisClient.cpp:161
+20200629 12:35:04.516609 47779 INFO  ---redis errstr[],fd[14],err[0],flags[3] - RedisClient.cpp:174
+20200629 12:35:04.516733 47782 INFO  ---redis errstr[],fd[17],err[0],flags[3] - RedisClient.cpp:174
+20200629 12:35:04.516777 47781 INFO  ---redis errstr[],fd[16],err[0],flags[3] - RedisClient.cpp:174
+20200629 12:35:04.516894 47784 INFO  ---redis errstr[],fd[19],err[0],flags[3] - RedisClient.cpp:174
+20200629 12:35:04.519118 47780 INFO  ---redis errstr[],fd[15],err[0],flags[3] - RedisClient.cpp:174
+20200629 12:35:04.519912 47785 INFO  ---redis errstr[],fd[20],err[0],flags[3] - RedisClient.cpp:174
+20200629 12:35:04.519621 47783 INFO  ---redis errstr[],fd[18],err[0],flags[3] - RedisClient.cpp:174
+20200629 12:35:04.521355 47788 INFO  threadInit - LoginServer.cpp:175
+20200629 12:35:04.521464 47788 INFO  ---redis Connect With ip[192.168.2.208],port[6379] initRedisCluster - RedisClient.cpp:161
+20200629 12:35:04.521636 47775 INFO  startHttpServer--- *** 
+HttpServer = 0.0.0.0:9090 网络IO线程数 = 10 worker 线程数 = 10 - LoginServer.cpp:410
+20200629 12:35:04.522607 47789 INFO   --- *** loop start looping ... - EventLoop.cc:109
+20200629 12:35:04.523512 47790 INFO   --- *** loop start looping ... - EventLoop.cc:109
+20200629 12:35:04.523955 47791 INFO   --- *** loop start looping ... - EventLoop.cc:109
+20200629 12:35:04.526007 47792 INFO   --- *** loop start looping ... - EventLoop.cc:109
+20200629 12:35:04.526623 47793 INFO   --- *** loop start looping ... - EventLoop.cc:109
+20200629 12:35:04.527782 47794 INFO   --- *** loop start looping ... - EventLoop.cc:109
+20200629 12:35:04.528570 47795 INFO   --- *** loop start looping ... - EventLoop.cc:109
+20200629 12:35:04.529156 47796 INFO   --- *** loop start looping ... - EventLoop.cc:109
+20200629 12:35:04.529624 47797 INFO   --- *** loop start looping ... - EventLoop.cc:109
+20200629 12:35:04.530209 47798 INFO   --- *** loop start looping ... - EventLoop.cc:109
+20200629 12:35:04.530420 47775 INFO  InitZookeeper ipaddr[192.168.2.209:2181] - LoginServer.cpp:188
+20200629 12:35:04.541135 47775 INFO  ---InitZookeeper OK ! - LoginServer.cpp:198
+20200629 12:35:04.541187 47775 INFO   --- *** loop start looping ... - EventLoop.cc:109
+20200629 12:35:04.573559 47800 INFO  ZookeeperConnectedHandlerzookeeper连接成功回调 - LoginServer.cpp:241
+20200629 12:35:04.576341 47786 INFO  ---redis errstr[],fd[21],err[0],flags[3] - RedisClient.cpp:174
+20200629 12:35:04.576414 47788 INFO  ---redis errstr[],fd[23],err[0],flags[3] - RedisClient.cpp:174
+20200629 12:35:04.580593 47787 INFO  ---redis errstr[],fd[22],err[0],flags[3] - RedisClient.cpp:174
+20200629 12:35:05.530662 47777 WARN  ---后台更新代理通知信息---loadUserWhiteList - LoginServer.cpp:1898
+20200629 12:35:05.535317 47777 INFO  ---user_white[250002755]1 - LoginServer.cpp:1911
+20200629 12:35:05.535341 47777 INFO  ---user_white[250101081]2 - LoginServer.cpp:1911
+20200629 12:35:05.535346 47777 WARN  ---load User White List end --- 2 - LoginServer.cpp:1913
+20200629 12:35:06.031537 47777 WARN  ---临时帐号信息---loadTempPlayerInfo - LoginServer.cpp:1866
+20200629 12:35:06.050725 47777 WARN  --- load Temp Player Info end --- 500 - LoginServer.cpp:1887
+20200629 12:35:07.031213 47777 WARN  ---不加载白名单---refreshWhiteList - LoginServer.cpp:333
+20200629 12:35:08.031012 47777 WARN  ---加载代理信息---refreshAgentInfo - LoginServer.cpp:1727
+20200629 12:35:08.034276 47777 WARN  ---load proxy info end--------------- - LoginServer.cpp:1761
+20200629 12:35:08.036016 47777 WARN  ---game_domaint,_id 5e59769956b9201dbc58834e - LoginServer.cpp:1776
+20200629 12:35:08.036063 47777 WARN  ---game_domaint,domain_game http://192.168.2.195 - LoginServer.cpp:1777
+20200629 12:35:08.036079 47777 WARN  ---game_domaint,domainname 主域名1 - LoginServer.cpp:1778
+20200629 12:35:08.036108 47777 WARN  ---game_domaint,_id 5e4b147f731be54b984995f1 - LoginServer.cpp:1776
+20200629 12:35:08.036121 47777 WARN  ---game_domaint,domain_game http://192.168.2.16 - LoginServer.cpp:1777
+20200629 12:35:08.036133 47777 WARN  ---game_domaint,domainname 主域名2 - LoginServer.cpp:1778
+20200629 12:35:08.036154 47777 WARN  ---game_domaint,_id 5e9e55cd8f7f648830cc55e0 - LoginServer.cpp:1776
+20200629 12:35:08.036166 47777 WARN  ---game_domaint,domain_game http://192.168.2.16 - LoginServer.cpp:1777
+20200629 12:35:08.036177 47777 WARN  ---game_domaint,domainname cqtest - LoginServer.cpp:1778
+20200629 12:35:08.036241 47777 WARN  ---load game domaint end--------------- - LoginServer.cpp:1780
+20200629 12:35:08.036858 47777 WARN  ---agent_info ---  - LoginServer.cpp:1801
+20200629 12:35:08.036912 47777 WARN  ---game_domain_ ---  - LoginServer.cpp:1814
+20200629 12:35:08.531139 47777 WARN  ---加载游戏版本 - LoginServer.cpp:1675
+20200629 12:35:08.542790 47777 WARN  ---get game version end---[hall-2.0.25,update_url-usAf4mjbkssd0Ovn1O+Ot3dHpVCbzaHLhteRCe+uTmM=,client-201] - LoginServer.cpp:1705
+20200629 12:36:02.416207 47789 INFO  ---网络连接数[1],WEB端[192.168.2.25:55586] -> HTTP服[192.168.2.95:9090] UP - LoginServer.cpp:428
+20200629 12:36:02.416303 47789 INFO  ---网络消息数[1],每秒连接数[1] - LoginServer.cpp:475
+20200629 12:36:02.416323 47789 INFO  --->>> onHttpMessage peerAddress[192.168.2.25],ipNetEndian[419604672]whiteIP[0] - LoginServer.cpp:556
+20200629 12:36:02.416454 47784 WARN  parseQuery --- 
+agentid=10000
+gameid=0
+testAccount=text_70019433 - LoginServer.cpp:711
+20200629 12:36:02.416478 47784 INFO  --- GameHandle[?testAccount=text_70019433&agentid=10000&gameid=0],[3] - LoginServer.cpp:1603
+20200629 12:36:02.416489 47784 INFO  DemoHandle  ?testAccount=text_70019433&agentid=10000&gameid=0 - LoginServer.cpp:796
+20200629 12:36:02.416501 47784 WARN  parseQuery --- 
+agentid=10000
+gameid=0
+testAccount=text_70019433 - LoginServer.cpp:711
+20200629 12:36:02.416507 47784 WARN  ---params size:3 - LoginServer.cpp:822
+20200629 12:36:02.416645 47784 WARN  ---Demo account[text_70019433],agentId[10000] - LoginServer.cpp:850
+20200629 12:36:02.416658 47784 WARN  ---查询用户信息---account[text_70019433],agentId[10000] - LoginServer.cpp:1936
+20200629 12:36:02.428097 47784 WARN  ---update userid[470549],src[text_7001943310000],strMd5Account[a21d7af0feff0328] - LoginServer.cpp:2034
+20200629 12:36:02.429558 47784 INFO  ---找到玩家---userid[470549],txhaccount[a21d7af0feff0328],txhstatus[0] - LoginServer.cpp:2056
+20200629 12:36:02.429618 47784 INFO  ---userid:470549 token_session {"userid":470549,"agentid":10000,"time":1593405362,"account":"text_70019433"} - LoginServer.cpp:2079
+20200629 12:36:02.430603 47784 INFO  ---mainURL[http://192.168.2.16],domainURL[5e4b147f731be54b984995f1] - LoginServer.cpp:1473
+20200629 12:36:02.430618 47784 INFO  ---Response---[111362EE140F157D] token_session[{"userid":470549,"agentid":10000,"time":1593405362,"account":"text_70019433"}] - LoginServer.cpp:1481
+20200629 12:36:02.430651 47784 INFO  ---token[h%2BUr3IIWrRNrvtx0K0fltZMQ4uyu2PX1oZXb8u0Cu%2Fd61W1jxe%2F0XK8qK3nIZxWj6xGMG2nKnL9oFIA7iCBjggfHXtBCmEn3hhPMY6TY3h8%3D],strEncrypt[h+Ur3IIWrRNrvtx0K0fltZMQ4uyu2PX1oZXb8u0Cu/d61W1jxe/0XK8qK3nIZxWj6xGMG2nKnL9oFIA7iCBjggfHXtBCmEn3hhPMY6TY3h8=],AesKey[mjo3obaHdKXxs5Fqw4Gj6mO7rBc52Vdw] - LoginServer.cpp:1500
+20200629 12:36:02.430660 47784 INFO  ---token 1 [192.168.2.215:10000],ApiAdd[http://192.168.2.215:9090/TokenHandle],agentId[10000] - LoginServer.cpp:1514
+20200629 12:36:02.430677 47784 INFO  ---token 2 [%2FCnfJ14LiWSHV56qJtCWP7xxRquwUc5fbTZsFAy1C%2Bw%3D],ApiAdd[usAf4mjbkssd0Ovn1O%2BOt%2Bg%2BivgZtMUnbcNFGXpKLsfEGfOFX4iSPbTVyQQ7CWGt],agentId[IjwcNRvvUvfxev7LL%2FNEEw%3D%3D] - LoginServer.cpp:1529
+20200629 12:36:02.430719 47784 WARN  ---GameHandle---------isDemo[1],试玩
+{"maintype":"/GameHandle","type":0,"data":{"account":"text_70019433","code":0,"url":"http://192.168.2.16?domain=%2FCnfJ14LiWSHV56qJtCWP7xxRquwUc5fbTZsFAy1C%2Bw%3D&gamebackurl=&token=h%2BUr3IIWrRNrvtx0K0fltZMQ4uyu2PX1oZXb8u0Cu%2Fd61W1jxe%2F0XK8qK3nIZxWj6xGMG2nKnL9oFIA7iCBjggfHXtBCmEn3hhPMY6TY3h8%3D&apiadd=usAf4mjbkssd0Ovn1O%2BOt%2Bg%2BivgZtMUnbcNFGXpKLsfEGfOFX4iSPbTVyQQ7CWGt&aid=IjwcNRvvUvfxev7LL%2FNEEw%3D%3D&versions=hall-2.0.25,update_url-usAf4mjbkssd0Ovn1O+Ot3dHpVCbzaHLhteRCe+uTmM=,client-201&logintype=1&gameid=0"}}
+ - LoginServer.cpp:1635
+20200629 12:36:02.430731 47784 WARN  ---处理耗时(秒)[0.014298],MsgCount[1],OKCount[1],ErrCount[0] - LoginServer.cpp:1668
+20200629 12:36:02.431043 47789 INFO  ---网络连接数[0],WEB端[192.168.2.25:55586] -> HTTP服[192.168.2.95:9090] DOWN - LoginServer.cpp:450

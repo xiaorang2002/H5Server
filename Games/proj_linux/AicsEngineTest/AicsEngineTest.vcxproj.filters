@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="pb">
+      <UniqueIdentifier>{8ac0a16b-5eab-4b01-abd0-cb07d3d009c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="public">
+      <UniqueIdentifier>{05bafd4a-6ef2-4287-94bb-4690b52b79f5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\public\gameDefine.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\GameGlobalFunc.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\GameTimer.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\GlobalFunc.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\Globals.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\IAndroidUserItemSink.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\ISaveReplayRecord.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\IServerUserItem.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\ITableFrame.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\ITableFrameSink.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\MyEventLoopThreadPool.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\ThreadLocalSingletonMongoDBClient.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\UserProxyInfo.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\weights.h">
+      <Filter>public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\public\EntryPtr.h">
+      <Filter>public</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="testAicsDragon.cpp" />
+    <ClCompile Include="testAicsRedBlack.cpp" />
+    <ClCompile Include="..\..\..\public\weights.cpp">
+      <Filter>public</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

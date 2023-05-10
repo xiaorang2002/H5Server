@@ -1,0 +1,334 @@
+syntax = "proto3";
+package Game.Common;
+
+
+// 主命令.
+enum MAINID
+{
+    MAIN_MESSAGE_CLIENT_ID_BEGIN               = 0;
+
+    MAIN_MESSAGE_CLIENT_TO_PROXY               = 1;
+    MAIN_MESSAGE_CLIENT_TO_HALL                = 2;
+    MAIN_MESSAGE_CLIENT_TO_GAME_SERVER         = 3;
+    MAIN_MESSAGE_CLIENT_TO_GAME_LOGIC          = 4;
+
+    MAIN_MESSAGE_PROXY_TO_HALL                 = 5;
+    MAIN_MESSAGE_HALL_TO_PROXY                 = 6;
+    MAIN_MESSAGE_PROXY_TO_GAME_SERVER          = 7;
+    MAIN_MESSAGE_GAME_SERVER_TO_PROXY          = 8;
+
+    MAIN_MESSAGE_HTTP_TO_SERVER                = 9;
+    MAIN_MESSAGE_CLIENT_TO_MATCH_SERVER        = 10;
+    MAIN_MESSAGE_CLIENT_TO_PAY_SERVER          = 11;
+}
+
+enum MESSAGE_CLIENT_TO_SERVER_SUBID
+{
+    MESSAGE_CLIENT_TO_SERVER_SUBID_BEGIN        = 0;
+
+    KEEP_ALIVE_REQ                              = 1;                    // 心跳包                  Game.Common.KeepAliveMessage
+    KEEP_ALIVE_RES                              = 2;                    // 心跳包返回               Game.Common.KeepAliveMessageResponse
+}
+
+enum MESSAGE_CLIENT_TO_PROXY_SUBID
+{
+    MESSAGE_CLIENT_TO_PROXY_SUBID_BEGIN                   = 0;
+
+    CLIENT_TO_PROXY_GET_AES_KEY_MESSAGE_REQ               = 3;                      // 协商密钥             ProxyServer.Message.GetAESKeyMessage
+    CLIENT_TO_PROXY_GET_AES_KEY_MESSAGE_RES               = 4;                      // 协商密钥返回          ProxyServer.Message.GetAESKeyMessageResponse
+
+    CLIENT_TO_PROXY_BIND_USER_CONNECTION_MESSAGE_REQ      = 5;                      // 绑定大厅链接信息         Game.Common.ProxyBindUserConnectionMessage
+    CLIENT_TO_PROXY_BIND_USER_CONNECTION_MESSAGE_RES      = 6;                      // 绑定大厅链接信息返回      Game.Common.ProxyBindUserConnectionMessageResponse
+
+    CLIENT_TO_PROXY_BIND_GAME_SERVER_MESSAGE_REQ          = 7;                      // Bind GameServer       Game.Common.ProxyBindGameServerMessage
+    CLIENT_TO_PROXY_BIND_GAME_SERVER_MESSAGE_RES          = 8;                      // Bind GameServer       Game.Common.ProxyBindGameServerMessageResponse
+
+    PROXY_NOTIFY_SHUTDOWN_USER_CLIENT_MESSAGE_NOTIFY      = 9;                      // 在其他地方登陆 Game.Common.ProxyNotifyShutDownUserClientMessage
+    PROXY_NOTIFY_PUBLIC_NOTICE_MESSAGE_NOTIFY             = 10;                     //  ProxyServer.Message.NotifyNoticeMessageFromProxyServerMessage
+    PROXY_NOTIFY_USER_ORDER_SCORE_MESSAGE                 = 11;                     // 玩家上下分消息 ProxyNotifyOrderScoreMessage
+}
+
+enum MESSAGE_CLIENT_TO_HALL_SUBID
+{
+    MESSAGE_CLIENT_TO_HALL_SUBID_BEGIN                     = 0;
+
+    CLIENT_TO_HALL_LOGIN_MESSAGE_REQ                       = 3;                     // 账号登录              HallServer.LoginMessage
+    CLIENT_TO_HALL_LOGIN_MESSAGE_RES                       = 4;                     // 账号登录返回           HallServer.LoginMessageResponse
+
+    CLIENT_TO_HALL_GET_GAME_ROOM_INFO_REQ                  = 5;                     // 取游戏信息             HallServer.GetGameMessage
+    CLIENT_TO_HALL_GET_GAME_ROOM_INFO_RES                  = 6;                     // 返回游戏信息           HallServer.GetGameMessageResponse
+
+    CLIENT_TO_HALL_GET_GAME_SERVER_MESSAGE_REQ             = 7;                     //  获取游戏IP             HallServer.GetGameServerMessage
+    CLIENT_TO_HALL_GET_GAME_SERVER_MESSAGE_RES             = 8;                     //  返回游戏IP             HallServer.GetGameServerMessageResponse
+
+    CLIENT_TO_HALL_GET_PLAYING_GAME_INFO_MESSAGE_REQ       = 9;                     // GET PLAYING GAME INFO REQUESS        HallServer.GetPlayingGameInfoMessage
+    CLIENT_TO_HALL_GET_PLAYING_GAME_INFO_MESSAGE_RES       = 10;                    // GET PLAYING GAME INFO RESPONSE       HallServer.GetPlayingGameInfoMessageResponse
+
+    CLIENT_TO_HALL_SET_HEAD_MESSAGE_REQ                    = 11;                    // SET HEAD REQUESS        HallServer.SetHeadIdMessage
+    CLIENT_TO_HALL_SET_HEAD_MESSAGE_RES                    = 12;                    // SET HEAD RESPONSE       HallServer.SetHeadIdMessageResponse
+
+    CLIENT_TO_HALL_SET_NICKNAME_MESSAGE_REQ                = 13;                    // SET NICKNAME REQUESS   HallServer.SetNickNameMessage
+    CLIENT_TO_HALL_SET_NICKNAME_MESSAGE_RES                = 14;                    // SET NICKNAME RESPONSE  HallServer.SetNickNameMessageResponse
+
+    CLIENT_TO_HALL_GET_USER_SCORE_MESSAGE_REQ              = 15;                    // 请求分值改变           Game.Common.GetUserScoreMessage
+    CLIENT_TO_HALL_GET_USER_SCORE_MESSAGE_RES              = 16;                    // 返回分值改变           Game.Common.GetUserScoreMessageResponse
+
+    CLIENT_TO_HALL_GET_PLAY_RECORD_REQ                     = 17;                  // 请求玩家的游戏记录列表   HallServer.GetPlayRecordMessage
+    CLIENT_TO_HALL_GET_PLAY_RECORD_RES                     = 18;                  // 返回玩家的游戏记录列表    HallServer.GetPlayRecordMessageResponse
+
+    CLIENT_TO_HALL_GET_ROOM_PLAYER_NUM_REQ                  = 19;                   // 取房间人数             HallServer.GetServerPlayerNum
+    CLIENT_TO_HALL_GET_ROOM_PLAYER_NUM_RES                  = 20;                   // 返回房间人数           HallServer.GetServerPlayerNumResponse
+
+    CLIENT_TO_HALL_GET_MATCH_ROOM_INFO_REQ                  = 21;                     // 取信息                HallServer.GetMatchMessage
+    CLIENT_TO_HALL_GET_MATCH_ROOM_INFO_RES                  = 22;                     // 返回游戏信息           HallServer.GetMatchMessageResponse
+
+    CLIENT_TO_HALL_GET_MATCH_RECORD_REQ                     = 23;                   //请求比赛记录             HallServer.GetMatchRecordMessage
+    CLIENT_TO_HALL_GET_MATCH_RECORD_RES                     = 24;                   //返回比赛记录             HallServer.GetMatchRecordResponse
+
+    CLIENT_TO_HALL_GET_MATCH_BEST_RECORD_REQ                = 25;                   //请求比赛记录             HallServer.GetMatchBestRecordMessage
+    CLIENT_TO_HALL_GET_MATCH_BEST_RECORD_RES                = 26;                   //返回比赛记录             HallServer.GetMatchBestRecordResponse
+
+    //幸运游戏
+    CLIENT_TO_HALL_GET_LUCKY_GAME_REQ                       = 27;                   //请求转盘结果             HallServer.GetLuckyGameRequest
+    CLIENT_TO_HALL_GET_LUCKY_GAME_RES                       = 28;                   //返回转盘结果             HallServer.GetLuckyGameResponse
+    CLIENT_TO_HALL_SWICTH_LUCKY_GAME_REQ                      = 29;                   //请求开始转盘             HallServer.GetSwitchLuckyGameRequest
+    CLIENT_TO_HALL_SWICTH_LUCKY_GAME_RES                      = 30;                   //返回请求结果             HallServer.GetSwitchLuckyGameResponse
+
+    // Task 
+    CLIENT_TO_HALL_GET_TASK_LIST_REQ                            = 31;                       //请求玩家任务列表      ReqGetUserTask
+    CLIENT_TO_HALL_GET_TASK_LIST_RES                            = 32;                       //请求玩家任务列表返回      ResGetUserTask
+    CLIENT_TO_HALL_GET_AWARDS_REQ                               = 33;                       //请求领取任务奖励      ReqGetTaskRewards
+    CLIENT_TO_HALL_GET_AWARDS_RES                               = 34;                       //请求领取任务奖励返回      ResGetTaskReward
+
+    CLIENT_TO_HALL_GET_RECORD_DETAIL_REQ                     = 35;                  // 请求当局游戏记录详情   HallServer.GetRecordDetailMessage
+    CLIENT_TO_HALL_GET_RECORD_DETAIL_RES                     = 36;                  // 返回当局游戏记录详情   HallServer.GetRecordDetailResponse
+
+    CLIENT_TO_HALL_GET_MATCHRECORD_DETAIL_REQ                = 37;                  // 请求当局游戏记录详情   HallServer.GetMatchRecordDetailMessage
+    CLIENT_TO_HALL_GET_MATCHRECORD_DETAIL_RES                = 38;                  // 返回当局游戏记录详情   HallServer.GetMatchRecordDetailResponse	
+
+    CLIENT_TO_HALL_SAFE_BOX_SCORE_REQ                       = 39;                  // 请求保险箱操作      HallServer.SafeBoxScoreMessage
+    CLIENT_TO_HALL_SAFE_BOX_SCORE_RES                       = 40;                  // 返回保险箱操作结果   HallServer.SafeBoxScoreResponse
+
+    CLIENT_TO_HALL_EXTRANGE_ORDER_REQ                      = 41;                  // 兑换请求       HallServer.ExtrangeOrderMessage
+    CLIENT_TO_HALL_EXTRANGE_ORDER_RES                      = 42;                  // 兑换回复       HallServer.ExtrangeOrderResponse	
+
+    CLIENT_TO_HALL_BAND_BANK_REQ                            = 43;                  // 请求绑定支付宝等操作      HallServer.BandBankMessage
+    CLIENT_TO_HALL_BAND_BANK_RES                            = 44;                  // 返回绑定支付宝等操作结果   HallServer.BandBankResponse
+
+    CLIENT_TO_HALL_SET_NICKNAME_REQ                         = 45;                  // 设置昵称请求      HallServer.SetNickNameMessage
+    CLIENT_TO_HALL_SET_NICKNAME_RES                         = 46;                  // 设置昵称返回结果   HallServer.SetNickNameResponse
+
+    CLIENT_TO_HALL_GET_REBATE_REQ                           = 47;                   // 提取佣金请求      HallServer.GetRebateMessage
+    CLIENT_TO_HALL_GET_REBATE_RES                           = 48;                   // 提取佣金返回结果   HallServer.GetRebateResponse
+
+    CLIENT_TO_HALL_GET_BANK_INFO_REQ                        = 49;                   // 获取代理银行信息请求 HallServer.GetBankInfoMessage
+    CLIENT_TO_HALL_GET_BANK_INFO_RES                        = 50;                   // 获取代理银行信息返回结果   HallServer.GetBankInfoResponse
+
+    CLIENT_TO_HALL_SET_MIN_REBATE_REQ                       = 51;                  // 设置佣金保底      HallServer.SetMinRebateMessage
+    CLIENT_TO_HALL_SET_MIN_REBATE_RES                       = 52;                  // 设置佣金保底返回结果   HallServer.SetMinRebateResponse
+     
+
+    
+
+    CLIENT_TO_HALL_GET_ACTIVE_REQ                           = 53;                  // 获取活动列表          HallServer.GetActiveMessage
+    CLIENT_TO_HALL_GET_ACTIVE_RES                           = 54;                  // 获取活动列表返回结果   HallServer.GetActiveResponse
+    
+    CLIENT_TO_HALL_SIGN_IN_REQ                              = 55;                  // 签到请求          HallServer.SignInMessage
+    CLIENT_TO_HALL_SIGN_IN_RES                              = 56;                  // 签到请求返回结果   HallServer.SignInResponse
+
+    CLIENT_TO_HALL_KE_FU_REQ                                = 57;                   // 客服请求          HallServer.CustomerServiceMessage
+    CLIENT_TO_HALL_KE_FU_RES                                = 58;                   // 客服请求返回结果   HallServer.CustomerServiceResponse
+
+    CLIENT_TO_HALL_LOAD_SIGN_IN_REQ                         = 59;                  // 加载每日签到信息    HallServer.GetSignInMessage
+    CLIENT_TO_HALL_LOAD_SIGN_IN_RES                         = 60;                  // 每日签到返回结果    HallServer.GetSignInResponse
+
+
+    CLIENT_TO_HALL_GET_MAILS_REQ                            = 61;                  // 请求邮件列表      HallServer.GetMailsMessage
+    CLIENT_TO_HALL_GET_MAILS_RES                       	    = 62;                  // 请求邮件列表响应   HallServer.GetMailsMessageResponse
+
+    CLIENT_TO_HALL_GET_BULLETIN_REQ                         = 63;                  // 请求公告列表      HallServer.GetBullettinMessage
+    CLIENT_TO_HALL_GET_BULLETIN_RES                         = 64;                  // 请求公告列表响应   HallServer.GetBullettinMessageResponse
+
+    CLIENT_TO_HALL_SET_BULLETINMAIL_REQ                     = 65;                  // 修改公告邮件状态      HallServer.SetBullettinMailMessage
+    CLIENT_TO_HALL_SET_BULLETINMAIL_RES                     = 66;                  // 修改公告邮件状态响应   HallServer.SetBullettinMailResponse
+
+    CLIENT_TO_HALL_SET_CARD_DEFUALT_REQ                     = 67;                  // 设置默认卡类型      HallServer.SetCardDefaultMessage
+    CLIENT_TO_HALL_SET_CARD_DEFUALT_RES                     = 68;                  // 返回设置默认卡类型结果   HallServer.SetCardDefaultResponse
+     
+
+    CLIENT_TO_HALL_GET_VIP_REWORD_REQ                       = 69;                  // 获取vip奖励栏信息       GetRewardMessage
+    CLIENT_TO_HALL_GET_VIP_REWORD_RES                       = 70;                  // 获取vip奖励栏信息回复   GetRewardMessageResponse
+
+    CLIENT_TO_HALL_RECEIVE_REWORD_REQ                       = 71;                  // 领取vip奖励      ReceiveRewardMessage
+    CLIENT_TO_HALL_RECEIVE_REWORD_RES                       = 72;                  // 领取vip奖励回复   ReceiveRewardMessageResponse
+
+    CLIENT_TO_HALL_RECHARGE_INFO_REQ                       = 73;                  // 充值信息请求      GetRechargeInfoMessage
+    CLIENT_TO_HALL_RECHARGE_INFO_RES                       = 74;                  // 充值信息请求回复   GetRechargeInfoResponse
+
+    CLIENT_TO_HALL_REG_REWARD_REQ                          = 75;                  // 注册送金信息请求   GetRegRewardMessage
+    CLIENT_TO_HALL_REG_REWARD_RES                          = 76;                  // 注册送金请求回复   GetRegRewardResponse
+
+    CLIENT_TO_HALL_RECHARGE_ORDER_REQ                      = 77;                  // 充值订单请求    RechargeOrderMessage
+    CLIENT_TO_HALL_RECHARGE_ORDER_RES                      = 78;                  // 充值订单请求回复   RechargeOrderResponse
+
+    CLIENT_TO_HALL_RECHARGE_RECORD_REQ                      = 79;                  // 充值订单记录    RechargeRecordMessage
+    CLIENT_TO_HALL_RECHARGE_RECORD_RES                      = 80;                  // 充值订单记录回复   RechargeRecordResponse
+
+     
+    CLIENT_TO_HALL_RED_ENVELOPE_RAIN_REQ                    = 81;                  // 请求红包雨信息    EvelopeRainMessage
+    CLIENT_TO_HALL_RED_ENVELOPE_RAIN_RES                    = 82;                  // 返回红包雨信息    EvelopeRainResponse
+
+    CLIENT_TO_HALL_GRAB_ENVELOPE_REQ                        = 83;                  // 抢红包   	  GrabEvelopeMessage
+    CLIENT_TO_HALL_GRAB_ENVELOPE_RES                        = 84;                  // 返回抢红包信息     GrabEvelopeResponse
+
+    CLIENT_TO_HALL_GET_Platform_INFO_REQ                    = 85;                  // 获取平台配置   	  GetPlatformMessage
+    CLIENT_TO_HALL_GET_Platform_INFO_RES                    = 86;                  // 获取平台配置信息     GetPlatformResponse
+
+    CLIENT_TO_HALL_GET_THIRD_PART_GAME_REQ                  = 87;                  // 获取第三方游戏配置   	  GetThirdPartGameMessage
+    CLIENT_TO_HALL_GET_THIRD_PART_GAME_RES                  = 88;                  // 获取第三方游戏返回信息     GetThirdPartGameResponse
+
+    CLIENT_TO_HALL_GET_DIVIDEND_LEVEL_REQ                  = 89;                  // 获取分红等级表   	        GetDividendLevelMessage
+    CLIENT_TO_HALL_GET_DIVIDEND_LEVEL_RES                  = 90;                  // 获取分红等级表返回信息      GetDividendLevelResponse
+
+    CLIENT_TO_HALL_GET_DIVIDEND_REQ                         = 91;                  // 领取分红   	        GetDividendMessage
+    CLIENT_TO_HALL_GET_DIVIDEND_RES                         = 92;                  // 领取分红返回信息      GetDividendResponse
+
+    CLIENT_TO_HALL_GET_ROUTE_REQ                           = 100;                  // 请求百人游戏实时路单消息      GetRouteMessage
+    CLIENT_TO_HALL_GET_ROUTE_RES                           = 101;                  // 返回百人游戏实时路单消息      GetRouteResponse
+
+/*
+    CLIENT_TO_HALL_GET_RANDOM_NICKNAME_MESSAGE_REQ         = 111;                  // GET NICKNAME REQUEST   HallServer.GetRandomNickNameMessage
+    CLIENT_TO_HALL_GET_RANDOM_NICKNAME_MESSAGE_RES         = 112;                 // GET NICKNAME RESPONSE  HallServer.GetRandomNickNameMessageResponse
+    
+    CLIENT_TO_HALL_EXCHANGE_SCORE_TO_RMB_MESSAGE_REQ       = 115;                  // 积分兑换              HallServer.ExchangeScoreToRMBMessage
+    CLIENT_TO_HALL_EXCHANGE_SCORE_TO_RMB_MESSAGE_RES       = 116;                  // 兑换返回              HallServer.ExchangeScoreToRMBMessageResponse
+
+    CLIENT_TO_HALL_UPDATE_USER_SCORE_MESSAGE_REQ           = 119;                  // 大厅主动刷新玩家积分     GetUpdateUserScoreMessage
+    CLIENT_TO_HALL_UPDATE_USER_SCORE_MESSAGE_RES           = 120;                  // 主动刷新返回            GetUpdateUserScoreResponse
+
+    CLIENT_TO_HALL_GET_DIALOG_BOX_NOTICE_MESSAGE_REQ       = 121;                 //获取弹框消息       GetDialogBoxNoticeMessage
+    CLIENT_TO_HALL_GET_DIALOG_BOX_NOTICE_MESSAGE_RES       = 122;                 //获取弹框消息       GetDialogBoxNoticeMessageResponse
+
+    CLIENT_TO_HALL_GET_PLAYBACK_COLLECT_REQ                = 125;                  //获取回放列表            GamePlaybackCollectRequest
+    CLIENT_TO_HALL_GET_PLAYBACK_COLLECT_RES                = 126;                  //返回回放列表            GamePlaybackCollectResponse
+
+    CLIENT_TO_HALL_GET_PLAYBACK_DETAIL_REQ                 = 127;                  //获取回放明细记录          GamePlaybackDetailRequest
+    CLIENT_TO_HALL_GET_PLAYBACK_DETAIL_RES                 = 128;                  //返回回放明细记录          GamePlaybackDetailResponse
+*/
+
+}
+
+enum MESSAGE_CLIENT_TO_GAME_SERVER_SUBID
+{
+    A = 0;
+}
+
+enum MESSAGE_CLIENT_TO_GAME_LOGIC_SUBID
+{
+    B = 0;
+}
+
+enum MESSAGE_PROXY_TO_HALL_SUBID
+{
+    HALL_ON_USER_OFFLINE                                   = 0;                  // 玩家已经从大厅服务器上掉线 客户端不用管 HallServer.HallOnUserOfflineMessage.
+}
+
+enum MESSAGE_HALL_TO_PROXY_SUBID
+{
+    D = 0;
+}
+
+enum MESSAGE_PROXY_TO_GAME_SERVER_SUBID
+{
+    GAME_SERVER_ON_USER_OFFLINE                            = 0;
+}
+
+enum MESSAGE_GAME_SERVER_TO_PROXY_SUBID
+{
+    MESSAGE_GAME_SERVER_TO_PROXY_SUBID_BEGIN    = 0;
+
+    PROXY_NOTIFY_KILL_BOSS_MESSAGE_REQ          = 42;                   // GLOABLE kill boss message   Game.Common.ProxyNotifyKillBossMessage
+
+}
+
+enum MESSAGE_HTTP_TO_SERVER_SUBID
+{
+    MESSAGE_NOTIFY_REPAIR_SERVER                 =0;
+}
+
+message Header
+{
+     int32    sign = 1;            // 包头标示.
+}
+
+message KeepAliveMessage
+{
+     Game.Common.Header     header          = 1;
+     string                 session         = 2; //心跳内容
+}
+message KeepAliveMessageResponse
+{
+    enum KeepAliveRetCode
+    {
+        KEEPALIVE_OK                    = 0;
+        KEEPALIVE_FAIL                  = 1;
+        KEEPALIVE_RELOGIN               = 2;
+
+        KEEPALIVE_UNKNOWN               = 20;
+    }
+
+     Game.Common.Header     header                 = 1;
+     int32                  retCode                = 2;
+     string                 errorMsg               = 3;
+}
+
+
+
+
+
+
+message ProxyNotifyRechargeScoreMessage
+{
+     Game.Common.Header     header                 = 1;
+     int32                  userId                 = 2; //user ID
+     int32                  id                     = 3; //table id
+     string                 orderId                = 4; //订单号
+     double                 realPay                = 5; //realPay Score
+     int32                  status                 = 6; //status
+}
+
+message ProxyNotifyShutDownUserClientMessage
+{
+     Game.Common.Header     header = 1;  // ID
+     int32		            userId = 2;
+     int32                  status = 3 ; //1后台踢下线 0或者没有重复登入
+}
+
+message ProxyNotifyOrderScoreMessage
+{
+     Game.Common.Header     header = 1;  // ID
+     int64		    userId = 2;
+     int64                  score  = 3;  //变动后的分数
+     int64                  safeScore  = 4;  //变动后的保险箱分值
+}
+
+message ProxyNotifyKillBossMessage
+{
+     Game.Common.Header     header                 = 1;
+     string                 msg                    = 2;
+}
+
+message ProxyNotifyReenterRoomMessage
+{
+     Game.Common.Header     header                 = 1;
+}
+
+message HallNotifyReLoginServerMessage
+{
+     Game.Common.Header     header                 = 1;
+}
+
+message HttpNotifyRepairServerResp
+{
+    int32                  status                 = 1;  //1 cannot join 2 stop game
+}

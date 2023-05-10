@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="pb">
+      <UniqueIdentifier>{7893c805-908d-4170-a7bc-b0cc2e43ea19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game_qzpj">
+      <UniqueIdentifier>{c779ba70-f23a-4a34-8e4a-08511821563a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\public\weights.cpp">
+      <Filter>Game_qzpj</Filter>
+    </ClCompile>
+    <ClCompile Include="AndroidUserItemSink.cpp">
+      <Filter>Game_qzpj</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\QPAlgorithm\cfg.cpp">
+      <Filter>Game_qzpj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QPAlgorithm\PJ.cpp">
+      <Filter>Game_qzpj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\proto\qzpj.Message.pb.cc">
+      <Filter>pb</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\public\weights.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="AndroidUserItemSink.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="PathMagic.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QPAlgorithm\cfg.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\Random.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\StdRandom.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QPAlgorithm\PJ.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Game_qzpj\CMD_Game.h">
+      <Filter>Game_qzpj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\proto\qzpj.Message.pb.h">
+      <Filter>pb</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

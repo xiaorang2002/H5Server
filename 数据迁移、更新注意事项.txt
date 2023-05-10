@@ -1,0 +1,33 @@
+1、绝对保证源数据库没有数据写入
+2、绝对保证目标数据库干净
+3、游戏服务保持跟线上绝对一致，校验MD5值
+4、前端H5重新上传
+5、捕鱼算法保持跟线上一致
+6、域名、线路迁移
+     ①、后台域名迁移
+     ②、前端H5域名迁移
+     ③、API域名迁移
+     ④、网关代理域名迁移
+7、数据库迁移（MongoDB和SQL Server）
+8、Redis数据库迁移
+     ①、计划任务abnormallastquerytime值重新设定
+     ②、水果机奖池值重新设定（hincrby rs_keyId_105 1810 345957372）
+     ③、水果机奖池记录值重新设定
+            LPUSH rs_keyId_102 "{\"jackpot\":6727,\"linebet\":10,\"timestamp\":1583996399,\"userid\":25751258}\n"
+            LPUSH rs_keyId_102 "{\"jackpot\":131110,\"linebet\":200,\"timestamp\":1583878205,\"userid\":25811436}\n"
+            LPUSH rs_keyId_102 "{\"jackpot\":6048,\"linebet\":10,\"timestamp\":1583278425,\"userid\":25736047}\n"
+            LPUSH rs_keyId_102 "{\"jackpot\":30234,\"linebet\":50,\"timestamp\":1583273518,\"userid\":25749991}\n"
+            LPUSH rs_keyId_102 "{\"jackpot\":5989,\"linebet\":10,\"timestamp\":1583190587,\"userid\":25746606}\n"
+            LPUSH rs_keyId_102 "{\"jackpot\":31804,\"linebet\":50,\"timestamp\":1583007151,\"userid\":25751258}\n"
+            LPUSH rs_keyId_102 "{\"jackpot\":32056,\"linebet\":50,\"timestamp\":1582188702,\"userid\":25751258}\n"
+            LPUSH rs_keyId_102 "{\"jackpot\":6358,\"linebet\":10,\"timestamp\":1582115492,\"userid\":25800542}\n"
+            LPUSH rs_keyId_102 "{\"jackpot\":67050,\"linebet\":100,\"timestamp\":1581785105,\"userid\":25753519}\n"
+            LPUSH rs_keyId_102 "{\"jackpot\":1358559,\"linebet\":2000,\"timestamp\":1581602292,\"userid\":25792806}\n"
+9、游戏服务配置文件核对（game.conf）
+10、游戏服务MD5值核对
+11、API配置文件核对（system.config）
+12、后台配置文件核对（system.config、database.config）
+13、计划任务配置文件核对
+14、计划任务是否生效检查
+15、数据库索引检查
+16、前端H5更新必须刷新大唐（https://play.datang18.com、http://play.datang18.com、https://ht.txqpapi.com）

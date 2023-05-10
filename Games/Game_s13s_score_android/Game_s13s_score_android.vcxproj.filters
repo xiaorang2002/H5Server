@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="AndroidUserItemSink.cpp">
+      <Filter>android</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\..\proto\s13s.Message.pb.cc">
+      <Filter>pb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\weights.cpp">
+      <Filter>Game_s13s</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QPAlgorithm\cfg.cpp">
+      <Filter>Game_s13s</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QPAlgorithm\funcC.cpp">
+      <Filter>Game_s13s</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QPAlgorithm\pb2Json.cpp">
+      <Filter>Game_s13s</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QPAlgorithm\s13s.cpp">
+      <Filter>Game_s13s</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="android">
+      <UniqueIdentifier>{c779ba70-f23a-4a34-8e4a-08511821563a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pb">
+      <UniqueIdentifier>{7893c805-908d-4170-a7bc-b0cc2e43ea19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game_s13s">
+      <UniqueIdentifier>{0b236b2c-9d8b-4dfc-b407-130a20be7310}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AndroidUserItemSink.h">
+      <Filter>android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\proto\s13s.Message.pb.h">
+      <Filter>pb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\SubNetIP.h">
+      <Filter>Game_s13s</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\weights.h">
+      <Filter>Game_s13s</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QPAlgorithm\cfg.h">
+      <Filter>Game_s13s</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QPAlgorithm\funcC.h">
+      <Filter>Game_s13s</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QPAlgorithm\pb2Json.h">
+      <Filter>Game_s13s</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QPAlgorithm\s13s.h">
+      <Filter>Game_s13s</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

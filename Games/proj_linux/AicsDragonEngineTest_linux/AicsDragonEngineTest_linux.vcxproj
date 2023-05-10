@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\public\EntryPtr.h" />
+    <ClInclude Include="..\..\..\public\gameDefine.h" />
+    <ClInclude Include="..\..\..\public\GameGlobalFunc.h" />
+    <ClInclude Include="..\..\..\public\GameTimer.h" />
+    <ClInclude Include="..\..\..\public\GlobalFunc.h" />
+    <ClInclude Include="..\..\..\public\Globals.h" />
+    <ClInclude Include="..\..\..\public\IAndroidUserItemSink.h" />
+    <ClInclude Include="..\..\..\public\ISaveReplayRecord.h" />
+    <ClInclude Include="..\..\..\public\IServerUserItem.h" />
+    <ClInclude Include="..\..\..\public\ITableFrame.h" />
+    <ClInclude Include="..\..\..\public\ITableFrameSink.h" />
+    <ClInclude Include="..\..\..\public\MyEventLoopThreadPool.h" />
+    <ClInclude Include="..\..\..\public\ThreadLocalSingletonMongoDBClient.h" />
+    <ClInclude Include="..\..\..\public\UserProxyInfo.h" />
+    <ClInclude Include="..\..\..\public\weights.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\public\weights.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="testAicsDragon.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D9242EAB-7796-4E2F-9937-A5F63504E0B4}</ProjectGuid>
+    <Keyword>Linux</Keyword>
+    <RootNamespace>AicsDragonEngineTest_linux</RootNamespace>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <ApplicationType>Linux</ApplicationType>
+    <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
+    <TargetLinuxPlatform>Generic</TargetLinuxPlatform>
+    <LinuxProjectType>{D51BCBC9-82E9-4017-911E-C93873C4EA2B}</LinuxProjectType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <ConfigurationType>Application</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>AicsDragonEngineTest_linux</TargetName>
+    <IncludePath>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\Linux\include;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\Linux\include\usr;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\Linux\include\usr\include;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\Linux\include\usr\include.linux;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\Linux\include\usr\include\include;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\Linux\include\usr\include\linux;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\Linux\include\usr\include\c++;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\Linux\include\usr\include\c++\5;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\Linux\include\usr\include\x86_64-linux-gnu;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include;D:\svn\H5Server\Framework\include;D:\svn\H5Server\public;D:\svn\H5Server\proto;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>/home/Landy/TianXia/Program;/home/Landy/TianXia/Program/public;/home/Landy/TianXia/Program/proto;/home/Landy/TianXia/Program/Framework/include;/usr/local/include/google/protobuf;/usr/include;/usr/local/include;/home/Landy/TianXia/Program/Aics/linux-include;/home/Landy/TianXia/Program/Aics/publics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <OutputFile>/home/Landy/TianXia/Program/bin/$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+    <Link>
+      <AdditionalLibraryDirectories>/home/Landy/TianXia/Program/Framework/libs;/usr/local/lib64;/usr/local/lib;/usr/lib64;/usr/lib;/usr/bin;/usr/local/bin;/home/Landy/TianXia/Program/bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LibraryDependencies>muduo;gameCrypto;protobuf;pthread;boost_date_time;boost_filesystem;boost_system;boost_thread;snappy;rt;m;z;dl;glog;curl</LibraryDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

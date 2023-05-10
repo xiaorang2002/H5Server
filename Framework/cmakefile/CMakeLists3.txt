@@ -1,0 +1,121 @@
+#https://www.jianshu.com/p/54292d374584
+#https://www.cnblogs.com/coffee520/p/10118852.html
+#1.cmake verson，指定cmake版本
+cmake_minimum_required(VERSION 3.6)
+
+#2.project name，指定项目的名称，一般和项目的文件夹名称对应
+PROJECT(TransferServer)
+
+MESSAGE ("======TransferServer Start======") 
+
+set(CMAKE_CXX_STANDARD 11)
+#set(SOURCES https.cpp bot.cpp api.cpp api_types.cpp types.cpp encode.cpp)
+
+#version
+set(MJVER 0)
+set(MNVER 0)
+set(PTVER 0)
+
+# Configure Source & Binary Directories ---------------------------------------
+SET (PROJECT_ROOT "${PROJECT_SOURCE_DIR}")						#项目当前目录
+SET (PROJECT_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")		#项目当前目录/include
+SET (PROJECT_SOURCE_DIR "${PROJECT_SOURCE_DIR}/src")			#项目当前目录/src
+SET (PROJECT_BINARY_DIR "${PROJECT_BINARY_DIR}/bin")			#项目当前目录/bin
+
+MESSAGE ("Include path: ${PROJECT_INCLUDE_DIR}")#/home/Landy/Desktop/H5Server/Framework/TransferServer/include
+MESSAGE ("Source path: ${PROJECT_SOURCE_DIR}") 	#/home/Landy/Desktop/H5Server/Framework/TransferServer/src
+MESSAGE ("Binary path: ${PROJECT_BINARY_DIR}") 	#/home/Landy/Desktop/H5Server/Framework/TransferServer/bin
+
+# Configure Depenency Directories ---------------------------------------------
+# SET (PROJECT_DEPS "${PROJECT_ROOT}/../../public")				#项目当前目录/../../public
+# SET (redis_inc "${PROJECT_DEPS}/RedisClient")					#项目当前目录/../../public/RedisClient
+# SET (redis_src "${PROJECT_DEPS}/RedisClient")					#项目当前目录/../../public/RedisClient
+
+SET (PROJECT_DEPS "${PROJECT_ROOT}/../../public")				#项目当前目录/../../public
+SET (redis_inc "${PROJECT_ROOT}/../../public")					#项目当前目录/../../public/RedisClient
+SET (redis_src "${PROJECT_ROOT}/../../public")					#项目当前目录/../../public/RedisClient
+
+MESSAGE ("redis_inc path: ${redis_inc}") 
+MESSAGE ("redis_src path: ${redis_src}") 
+MESSAGE ("---------------------------------------------------------") 
+MESSAGE ("---------------------------------------------------------") 
+# Include directories ---------------------------------------------------------
+#3.head file path，头文件目录  
+#或者这样 "../include" "/usr/include
+INCLUDE_DIRECTORIES( 
+	"../../"
+	"../../public" 
+	"../../public/RedisClient" 
+	"../../thirdpart"
+	"../include/Json/include"
+	"../include"
+	"../include/hiredis-vip"
+	# "../../Framework/include/hiredis-vip"
+	"../Framework/include"
+	"../include"
+	"./include"
+	"/usr/include"
+	"/usr/local/include"
+	"/usr/local/includee/zookeeper"
+	"/usr/local/include/google/protobuf"
+	)
+
+
+# 查找当前目录下的所有源文件
+# 并将名称保存到 TRANS_DIR_SRCS 变量
+#4.source directory，源文件目录
+AUX_SOURCE_DIRECTORY(src TRANS_DIR_SRCS) 
+FOREACH(F ${TRANS_DIR_SRCS})
+    MESSAGE(${F})
+ENDFOREACH(F)
+MESSAGE ("---------------------------------------------------------") 
+
+# 添加 math 子目录 第二个cassdk.out参数用于指定外部文件夹在输出文件夹中的位置
+MESSAGE ("redis_src path:" ${redis_src}) 
+MESSAGE ("---------------------------------------------------------") 
+
+# 添加外部子目录
+add_subdirectory(${redis_src}/RedisClient redis.out)
+
+
+MESSAGE ("---------------------------------------------------------") 
+MESSAGE ("---------------------------------------------------------") 
+
+
+# 指定生成目标 
+#add_executable(Redis RedisClient.cpp)
+# 添加链接库
+#target_link_libraries(Redis MathFunctions) 
+
+#设置库目录,放在这里,必须要放到ADD_EXECUTABLE前面,后续才可使用相对路径
+SET(TRANS_BINARY_DIR "../libs" "/usr/lib" "/usr/local/lib" "./redis.out" )
+
+#动态链接库或静态链接库的搜索路径，相当于gcc的-L参数,添加需要链接的库文件目录
+#必须要放到ADD_EXECUTABLE前面，因为这个命令只对后续命令生效。
+LINK_DIRECTORIES(${TRANS_BINARY_DIR})#增加Hello为link目录
+
+
+#5.set environment variable，设置环境变量，编译用到的源文件全部都要放到这里，否则编译能够通过，但是执行的时候会出现各种问题，比如"symbol lookup error xxxxx , undefined symbol"
+SET(TRANS_PATH ${TRANS_DIR_SRCS})
+
+#6.add executable file，添加要编译的可执行文件
+#ep. add_executable(myProject main.cpp) 
+ADD_EXECUTABLE(${PROJECT_NAME} ${TRANS_PATH})
+
+#set extern libraries
+SET(LIBRARIES
+	cpr -pthread rt m boost_locale boost_date_time boost_filesystem boost_system boost_thread boost_regex z dl snappy crypto curl ssl 
+	libhiredis-vip.a libmuduo.a libzookeeper_mt.a libzookeeperclient.a libgamecrypto.a libjson.a libprotobuf.a #libRedisClient.a
+	mongocxx bsoncxx
+)
+#MESSAGE ("libraries: ${LIBRARIES}")
+
+#7.add link library，添加可执行文件所需要的库，比如我们用到了libm.so（命名规则：lib+name+.so），就添加该库的名称，添加链接库，相同于指定-l参数
+#TARGET_LINK_LIBRARIES(${PROJECT_NAME} Redis)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${LIBRARIES})  	#将可执行文件与so_name连接成最终文件demo
+# TARGET_LINK_LIBRARIES(${PROJECT_NAME} "libRedisClient.a")	#这里可以使用相对路径的前提是 LINK_DIRECTORIES 必须要放到ADD_EXECUTABLE前面
+
+# SET_TARGET_PROPERTIES(utility  PROPERTIES    #表示生成的执行文件所在路径
+# RUNTIME_OUTPUT_DIRECTORY> "${PROJECT_SOURCE_DIR}/lib")
+
+MESSAGE ("======TransferServer End======") 

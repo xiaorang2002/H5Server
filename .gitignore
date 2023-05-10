@@ -1,0 +1,70 @@
+﻿#	ƥ��ģʽǰʹ�� / ��ʾ��Ŀ¼
+#	ƥ��ģʽ��ʹ�� / ������Ŀ¼�������ļ���
+#	ƥ��ģʽǰ�� �� ��ʾȡ��
+#	* ����������ַ�
+#	�� ƥ������һ���ַ�
+#	** ƥ�����⼶Ŀ¼
+
+#�ļ�����
+.vscode
+/.vscode
+*.Message.pb.o
+*.o
+*.so
+*.pro.user
+core.*
+*.rar
+*.sh
+muduo-master/*/*/*
+
+#�����ļ�����
+bin/Makefile
+bin/*.so
+bin/*.log
+Framework/*/*.pro.user
+Framework/*/*/*.pro.user
+Framework/*/*/*.o.d
+Framework/*/CMakeFiles
+Framework/*/CMakeFiles/*
+Framework/build*
+Framework/*/build*
+Framework/log*
+Framework/*/log*
+proto/*.*.pb.cc
+proto/*.*.pb.h
+
+
+
+#Ŀ¼����
+Framework/*/*/Makefile
+Framework/*/*/CMakeFiles
+Framework/*/*/*/CMakeFiles
+Framework/*/*/*/*/CMakeFiles
+Framework/*/*/.qmake.stash
+Framework/*/Makefile
+Framework/*/.qmake.stash
+Framework/bin/
+Framework/helloworld/
+Framework/mongoReadDemo/
+Framework/HttpDemo/
+Framework/mongoReadDemo/
+Framework/VerifyServer/
+Framework/TransferServer/bin/*/
+public/build
+public/RedisClient/build
+public/RedisClient/CMakeFiles
+
+Algorithm/
+bin/*/
+linux_include/iocp/msdev/
+Framework/*/Makefile
+Framework/*/.qmake.stash  
+Games/*/bin
+Games/*/build
+Games/*/Makefile
+Games/*/.qmake.stash  
+Games/testSuanFa
+bin/MatchServer
+bin/GameServer
+bin/HallServer
+bin/ProxyServer

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3A7E304F-C2E0-398D-A987-81E9A4F8E5B4}</ProjectGuid>
+    <RootNamespace>Game_Erqs_score_android</RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>..\..\bin\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>Game_Erqs_score_android</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolset>v141</PlatformToolset>
+    <OutputDirectory>..\..\bin\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>Game_Erqs_score_android</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Game_Erqs_score_android</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Game_Erqs_score_android</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>D:\share\linux_include\usr_local_include;D:\share\linux_include\usr_include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\share\SvnH5Server\Games\Game_Erqs_score_android;.;D:\share\SvnH5Server;/usr/local/include/google/protobuf;D:\share\SvnH5Server\Framework\include;D:\share\SvnH5Server\public;D:\share\SvnH5Server\proto;D:\share\SvnH5Server\Games\Game_Gswz;D:\Qt\Qt5.10.0\5.10.0\winrt_x86_msvc2015\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>release\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;GAME_ERQS_ANDROID_LIBRARY;QT_DEPRECATED_WARNINGS;MUDUO_STD_STRING;QT_NO_DEBUG;QT_PLUGIN;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>\usr\local\lib\libprotobuf.a;D:\share\SvnH5Server\Framework\libs\libmuduo.a;boost_date_time.lib;boost_filesystem.lib;boost_system.lib;boost_thread.lib;boost_regex.lib;snappy.lib;-pthread;rt.lib;m.lib;z.lib;dl.lib;glog.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\Game_Erqs_score_android.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;GAME_ERQS_ANDROID_LIBRARY;QT_DEPRECATED_WARNINGS;MUDUO_STD_STRING;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\share\SvnH5Server\Games\Game_Erqs_score_android;.;D:\share\SvnH5Server;/usr/local/include/google/protobuf;D:\share\SvnH5Server\Framework\include;D:\share\SvnH5Server\public;D:\share\SvnH5Server\proto;D:\share\SvnH5Server\Games\Game_Gswz;D:\Qt\Qt5.10.0\5.10.0\winrt_x86_msvc2015\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>debug\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;GAME_ERQS_ANDROID_LIBRARY;QT_DEPRECATED_WARNINGS;MUDUO_STD_STRING;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>\usr\local\lib\libprotobuf.a;D:\share\SvnH5Server\Framework\libs\libmuduo.a;boost_date_time.lib;boost_filesystem.lib;boost_system.lib;boost_thread.lib;boost_regex.lib;snappy.lib;-pthread;rt.lib;m.lib;z.lib;dl.lib;glog.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <OutputFile>$(OutDir)\Game_Erqs_score_android.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;GAME_ERQS_ANDROID_LIBRARY;QT_DEPRECATED_WARNINGS;MUDUO_STD_STRING;QT_PLUGIN;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs_score_android\AndroidUserItemSink.cpp" />
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\CPart.cpp" />
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\CTable.cpp" />
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\CTableMgr.cpp" />
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\ComposeTypeCheckers.cpp" />
+    <ClCompile Include="D:\share\SvnH5Server\proto\Erqs.Message.pb.cc" />
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\GamePlayer.cpp" />
+    <ClCompile Include="D:\share\SvnH5Server\public\GameTimer.cpp" />
+    <ClCompile Include="D:\share\SvnH5Server\public\GlobalFunc.cpp" />
+    <ClCompile Include="D:\share\SvnH5Server\Games\Game_Erqs\MjAlgorithm.cpp" />
+    <ClCompile Include="D:\share\SvnH5Server\public\weights.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\public\AndroidUserItem.h" />
+    <ClInclude Include="AndroidUserItemSink.h" />
+    <ClInclude Include="..\Game_Erqs\CPart.h" />
+    <ClInclude Include="..\Game_Erqs\CTable.h" />
+    <ClInclude Include="..\Game_Erqs\CTableMgr.h" />
+    <ClInclude Include="..\..\proto\Erqs.Message.pb.h" />
+    <ClInclude Include="..\Game_Erqs\GameDefine.h" />
+    <ClInclude Include="..\Game_Erqs\GamePlayer.h" />
+    <ClInclude Include="..\..\public\GameTimer.h" />
+    <ClInclude Include="..\..\public\GlobalFunc.h" />
+    <ClInclude Include="..\..\public\IAndroidUserItemSink.h" />
+    <ClInclude Include="..\..\public\IServerUserItem.h" />
+    <ClInclude Include="..\..\public\ITableFrame.h" />
+    <ClInclude Include="..\Game_Erqs\MjAlgorithm.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

@@ -1,0 +1,69 @@
+syntax = "proto2";
+package fkzq;
+
+enum SUBID
+{
+	// 服务端推送命令
+	SUB_S_NORMAL 					= 100;
+	SUB_S_MARRY	 					= 101;
+	SUB_S_STATUSFREE				= 102;
+	
+	//客户端命令   	
+	SUB_C_START 					= 103;
+	SUB_C_MARRY  					= 104;
+	SUB_C_ROUND_OVER 				= 105;
+
+	//错误信息
+	SUB_S_ERROR_INFO				= 150;	//CMD_S_ErrorCode 
+	// 服务器场景命令
+	SUB_SC_GAMESCENE_FREE			= 201;	//空闲场景消息CMD_S_StatusFree 
+}
+
+
+message CMD_S_ErrorCode
+{
+	required int32 cbLoseReason 	= 1; 	//错误码
+} 
+
+//场景消息开始，空闲状态
+message CMD_S_GameFree
+{
+	required int64 MinBet 			= 1;	//最低下注 (下注必须是这个数的倍数)
+	required int64 MaxBet 			= 2;	//最大下注
+	required int64 lCurrentBet 		= 3;	//当前下注信息
+	required int64 MyScoreInfo 		= 4;	//分数信息
+	required int64 nLeftNum 		= 5;	//剩余免费旋转次数
+	repeated int32 BetLists 		= 6;	//押分项列表 
+}
+message AwardInfo
+{
+	repeated int32 indexs  		= 1; //奖项的下标	
+	required int32 fruit		= 2; //奖项的水果类型	
+	required int64 winScore		= 3; //该奖项赢得钱
+}
+//拉霸开奖结果消息
+message CMD_S_RoundResult 
+{
+	repeated int32 m_Table   		= 1; 	//表盘水果			
+    repeated AwardInfo award 		= 2; 	//开奖项,亮起来的图标
+    required int64 Score 			= 3; 	//中了多少分
+	required int64 lCurrentScore 	= 4; 	//当前携带金币
+	required int32 nFreeRoundLeft 	= 5; 	//剩余免费旋转				
+	required int64 lFreeRoundWinScore=6; 	//免费旋转总赢分		
+	repeated bool bSpeedUp 			= 7; 	//哪一列要加速
+	required string roundId			= 8; 	//牌局Id 
+	required int32 footballNum 		= 9; //免费旋转的足球累计数	
+	required bool bBigaward			= 10;//是否是中了大奖
+}
+
+
+//开始按键(拉一盘)
+message CMD_C_GameStart
+{
+	required int64 llBetScore  		= 1; 	//总押分
+}
+message CMD_C_ClientReq
+{
+	required int32 nReqType  		= 1; 	//请求类型
+}
+

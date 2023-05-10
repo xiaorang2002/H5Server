@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="pb">
+      <UniqueIdentifier>{8ac0a16b-5eab-4b01-abd0-cb07d3d009c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game_Qzzjh">
+      <UniqueIdentifier>{63e6771d-d967-4818-8ee5-e23c6960c27b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\public\SubNetIP.h">
+      <Filter>Game_Qzzjh</Filter>
+    </ClInclude>
+    <ClInclude Include="TableFrameSink.h">
+      <Filter>Game_Qzzjh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\weights.h">
+      <Filter>Game_Qzzjh</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Game_Qzzjh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\GlobalFunc.h">
+      <Filter>Game_Qzzjh</Filter>
+    </ClInclude>
+    <ClInclude Include="CMD_Game.h">
+      <Filter>Game_Qzzjh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\proto\Qzzjh.Message.pb.h">
+      <Filter>pb</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QPAlgorithm\zjh.h">
+      <Filter>Game_Qzzjh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\QPAlgorithm\cfg.h">
+      <Filter>Game_Qzzjh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\public\Random.h">
+      <Filter>Game_Qzzjh</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="TableFrameSink.cpp">
+      <Filter>Game_Qzzjh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\weights.cpp">
+      <Filter>Game_Qzzjh</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Game_Qzzjh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\public\GlobalFunc.cpp">
+      <Filter>Game_Qzzjh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\proto\Qzzjh.Message.pb.cc">
+      <Filter>pb</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QPAlgorithm\zjh.cpp">
+      <Filter>Game_Qzzjh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\QPAlgorithm\cfg.cpp">
+      <Filter>Game_Qzzjh</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

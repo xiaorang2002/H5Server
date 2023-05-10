@@ -1,0 +1,157 @@
+syntax = "proto2";
+package qhb;
+// gameid = 580
+
+enum SUBID
+{		
+		
+		SUB_BEGIN               	= 0;		
+		//客户端请求
+        SUB_C_SEND_ENVELOPE		= 100;		// 客户端发红包.		    		CMD_C_Send
+		SUB_C_GRAB_ENVELOPE	    	= 101;		// 客户端抢红包	 					CMD_C_Grab
+		SUB_C_ASKFOR_PLAYERLIST 	= 102;		// 客户端获取玩家列表     			CMD_C_PlayerList
+        
+		//服务器返回
+		SUB_S_READY					= 120;		// 准备抢红包，最佳手气开始发红包	 CMD_S_Ready
+		SUB_S_START_GRABENVELOPE	= 121;		// 庄家发包服务端通知玩家开始抢红包  CMD_S_GameStart
+       	SUB_S_GRAB_ENVELOPE			= 122;		// 服务端通知有玩家抢红包			 CMD_S_PlayerGrab               
+        SUB_S_GAME_END				= 123;		// 倒计时结束，结算玩家抢到红包数据  CMD_S_GameEnd		
+        SUB_S_SEND_PLAYERLIST		= 124;      // 发送玩家列表             		 CMD_S_PlayerList		
+		SUB_S_SCENSES				= 125;		//场景消息							 CMD_S_Scenes
+
+	SUB_S_ANDROID_GRAB			= 126;			//机器人用协议
+	SUB_S_ERROR_INFO			= 127;			//CMD_S_ErrorCode 
+	  
+}
+message CMD_S_ErrorCode
+{
+	required int32 cbLoseReason 	= 1; 	//1状态错误 2红包已抢完 3金币不足 4重复抢红包 5非庄家不能发红吧
+} 
+
+//状态错误      
+//红包已抢完     
+//金币不足      
+//重复抢红包     
+//非庄家不能发红吧  
+message CMD_S_Android_Grab
+{
+  required double	grabTime		= 1;   
+
+}
+
+//场景消息，玩家进入发送
+message CMD_S_Scenes
+{
+	required int64	userId			= 1;    //玩家id.
+	required int32  headId			= 2;	//玩家头像
+	required int64  userScore		= 3;	//玩家分数
+	required int32  encelopeScore	= 4;	//红包总钱数
+	required int32  encelopeNum		= 5;	//红包总个数
+	required int32  sendTime		= 6;	//等待发包最长时间s
+	required int32  grabTime		= 7;	//抢红包最长时间s
+	required int32  endTime			= 8;	//结算最长时间s
+}
+
+// 玩家开始发红包    
+message CMD_C_Send
+{
+    required int64	userId		= 1;    //发红包玩家id.
+    required int32  headId		= 2;	//发红包玩家头像
+}
+
+// 玩家信息    
+message CMD_C_Grab
+{
+    required int64	userId		= 1;    //抢红包玩家id
+    required int32  headId		= 2;	//抢红包玩家头像
+}
+
+// 玩家信息    
+message CMD_C_PlayerList
+{
+    required int64	maxNum		= 1;    //请求在线玩家个数
+}
+
+// 玩家信息    
+message Player
+{
+    required int64		userId		= 1;    //玩家id.
+    required int64  	userScore   = 2;    //玩家分数
+    required int32 		headId		= 3;    //玩家头像
+    required int32  	roundCount  = 4;	//玩家局数
+    required int32  	winScore	= 5;	//玩家累计赢分
+    required int32  	bestCount	= 6;	//最佳手气次数
+    
+}
+
+// 玩家列表
+message CMD_S_PlayerList
+{  
+    repeated Player	players		= 1;	//玩家信息
+    required int32  	myRanking	= 2;	//我得排名
+}
+
+
+
+//通知普通玩家等待发红包，通知庄家准备开始发红包
+message CMD_S_Ready
+{
+    required int64	    bankUserId      = 1;    //庄家id.
+    required int32  	bankHeaderId    = 2;    //庄家头像
+    required int32  	isBanker	    = 3;    //自己是否是庄家.
+    required    string          roundId                 = 4;    //牌剧编号
+}
+
+//开始抢红包
+message CMD_S_GameStart
+{
+    required int32 		leftEnvelope	    = 1;    //剩余红包个数 
+    required int64		bankUserId          = 2;    //庄家id.
+    required int32  	bankHeaderId    	= 3;    //庄家头像
+    required int32  	isBanker	    	= 4;    //自己是否是庄家.
+}
+
+
+//有玩家抢红包
+message CMD_S_PlayerGrab
+{
+    required    int64				userId			= 1;	//抢红包的玩家id
+    required    int32           	headId      	= 2;	//抢红包的玩家头像id
+    required    int32           	leftEnvelopeNum	= 3;	//剩余的红包个数
+}
+//本局抢红包的玩家列表
+message CMD_S_GrabPlayerList
+{
+	required    int64 			userId			= 1;	//抢红包的玩家id
+	required    int32          	headId      	= 2;	//抢红包的玩家头像id
+	required    int64           winScore		= 3;	//玩家抢到得分数
+	required    int32  			isBanker		= 4;	//是否是最佳手气
+}
+//倒计时结束，结算玩家抢到红包数据
+message CMD_S_GameEnd
+{
+    repeated    CMD_S_GrabPlayerList	playerList		= 1;	//本局抢包的玩家信息
+    required    int64          			winScore        = 2;	//本局自己抢到的分数
+    required    int64          			userScore       = 3;	//玩家分数
+    required    int64           		allWinScore		= 4;	//总赢分
+    required    int32           		isBanker		= 5;	//自己是否抢到最佳手气
+    
+    required    int64           		bankerLeftScore		= 7;	//发红包剩余的钱数,预防抢包人数不够
+
+}
+
+//解析用
+
+message CMD_S_GameRecordDetail
+{
+    optional int32 gameid               = 1; //游戏类型
+    optional int64 userscore     	    = 2; //携带积分
+    optional int32 winLostScore         = 3; //总输赢积分
+    optional string writeType          = 4; //写分类型，赢，输，退还	
+}
+
+
+
+
+
+

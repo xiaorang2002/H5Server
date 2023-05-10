@@ -1,0 +1,65 @@
+#https://www.jianshu.com/p/54292d374584
+#https://www.cnblogs.com/coffee520/p/10118852.html
+#1.cmake verson，指定cmake版本
+cmake_minimum_required(VERSION 3.2)
+
+#2.project name，指定项目的名称，一般和项目的文件夹名称对应
+PROJECT(Demo)
+
+#3.head file path，头文件目录 "/usr/include" "/usr/local/include" "../include" "../../public" "../../" "../libs"
+INCLUDE_DIRECTORIES(
+include
+)
+
+#4.source directory，源文件目录
+AUX_SOURCE_DIRECTORY(src DIR_SRCS)
+
+#5.set environment variable，设置环境变量，编译用到的源文件全部都要放到这里，否则编译能够通过，但是执行的时候会出现各种问题，比如"symbol lookup error xxxxx , undefined symbol"
+SET(MY_PATH
+${DIR_SRCS}
+)
+
+#6.add executable file，添加要编译的可执行文件
+#ep. add_executable(myProject main.cpp) 
+ADD_EXECUTABLE(${PROJECT_NAME} ${MY_PATH})
+
+#set extern libraries
+SET(LIBRARIES
+cpr pthread# gtest gtest_main 
+)
+
+#7.add link library，添加可执行文件所需要的库，比如我们用到了libm.so（命名规则：lib+name+.so），就添加该库的名称，添加链接库，相同于指定-l参数
+#ep. 
+#target_link_libraries(myProject eng mx)     
+#equals to below 
+#target_link_libraries(myProject -leng -lmx) 
+#target_link_libraries(myProject libeng.so libmx.so)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${LIBRARIES})  #将可执行文件与so_name连接成最终文件demo
+ 
+ 
+SET(HELLO_BINARY_DIR
+"../libs" #"/usr/lib" 
+)
+
+#动态链接库或静态链接库的搜索路径，相当于gcc的-L参数,添加需要链接的库文件目录
+LINK_DIRECTORIES(${HELLO_BINARY_DIR})#增加Hello为link目录
+
+#添加需要链接的库文件路径，注意这里是全路径
+#LINK_LIBRARIES("/opt/MATLAB/R2012a/bin/glnxa64/libeng.so"　"/opt/MATLAB/R2012a/bin/glnxa64/libmx.so")
+
+
+
+#LIBS += -pthread -lrt -lm
+
+#LIBS += $$PWD/../libs/libmuduo.a
+#LIBS += -lboost_locale -lboost_date_time -lboost_filesystem -lboost_system -lboost_thread -lboost_regex
+#LIBS += -lcurl -lssl -lcrypto -lsnappy -pthread -lrt -lm -lz -ldl
+ 
+#LIBS += -L$$PWD/../libs -lgtest -lgtest_main -lcurl -lcpr 
+
+#INCLUDEPATH += ../../
+#INCLUDEPATH += ../../public
+#INCLUDEPATH += ../include
+#INCLUDEPATH += /usr/local/include
+#INCLUDEPATH += /usr/include
+  
